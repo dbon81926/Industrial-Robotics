@@ -2,6 +2,6 @@
 Update Log: <br>
 25/9: Established DH Parameters of KUKA KR6 R900 Robot Arm.
 
-Karl <br>
+Karl Cincollagas <br>
 Naga Bonu <br>
-Bhupesh <br>
+Bhupesh Guddi <br>
