@@ -28,6 +28,8 @@ Movement of Robotic Arms: <br>
 
 Trajection of ball:
 
+Scoring System:
+
 Real-Demo Implementation of Pong Game:
 
 
