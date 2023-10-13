@@ -8,7 +8,8 @@ Create a game where 2 robots are hitting a ball between each other using paddles
 
 Update Log: <br>
 25/9: Established DH Parameters of KUKA KR6 R900 Robot Arm. <br>
-13/10: Workspace Established with inital safety features + UR3 
+13/10: Workspace Established with inital safety features + UR3 <br>
+11/10: Completed KUKA KR6 R900 ply files and model. <br>
 
 Karl Cincollagas: 13918180 <br>
 Naga Bonu: 13908948 <br>
