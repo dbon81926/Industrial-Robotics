@@ -2,7 +2,7 @@
 
 Game Description:
 
-Create a game where 2 robots are hitting a ball between each other using paddles. To score a point the ball must move past the opposing robot where a scoring system will be implemented to keeo the game competitive.
+Create a game where 2 robots are hitting a ball between each other using paddles. To score a point the ball must move past the opposing robot, where a scoring system will be implemented to keep the game competitive.
 
 Update Log: <br>
 25/9: Established DH Parameters of KUKA KR6 R900 Robot Arm.
