@@ -1,5 +1,7 @@
 # Industrial-Robotics 41013 Spring 2023
 
+Dedicate 14/10/23 - 21/10/23 to focus on Robotics A2 Assignment.
+
 Game Description:
 
 Create a game where 2 robots are hitting a ball between each other using paddles. To score a point the ball must move past the opposing robot, where a scoring system will be implemented to keep the game competitive.
@@ -17,7 +19,7 @@ Tasks To Complete:
 Robots + Environemnt:
 1. [X] Finalise a project for A2
 2. [X] Create DH Parameters for KR6 900
-3. [ ] Establish an environment that incoroprates safety features for project to take place
+3. [X] Establish an environment that incoroprates safety features for project to take place
 4. [ ] Integrate robots + environemnt
 
 Creation of GUI: <br>
