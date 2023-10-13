@@ -5,3 +5,7 @@ Update Log: <br>
 Karl Cincollagas: 13918180 <br>
 Naga Bonu: 13908948 <br>
 Bhupesh Guddi: 13877446 <br>
+
+Tasks To Complete:
+
+1. [X] Finalise a project for A2
