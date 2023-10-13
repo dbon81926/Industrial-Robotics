@@ -1,6 +1,6 @@
 # Industrial-Robotics 41013 Spring 2023
 
-Dedicate 14/10/23 - 21/10/23 to focus on Robotics A2 Assignment.
+All team members agreed up dedicating 14/10/23 - 21/10/23 to focus on Robotics A2 Assignment.
 
 Game Description:
 
