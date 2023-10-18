@@ -20,12 +20,14 @@ void loop() {
   if (eStopButtonState == HIGH && !eStopActive) {
     digitalWrite(eStopStatus, HIGH); 
     eStopActive = true;
+    Serial.println("ESTOP ON");
   }
 
   // check for both buttons, turn off LED
   if (eStopButtonState == HIGH && resetButtonState == HIGH) {
     digitalWrite(eStopStatus, LOW); 
     eStopActive = false;
+    Serial.println("ESTOP OFF");
     delay(100); //debounce
   }
 }
