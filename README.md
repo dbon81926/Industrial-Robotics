@@ -32,9 +32,20 @@ Making Robot Heights Level:
 Write process
 
 Creation of GUI: <br>
+1. [X] Advanced teach function
+2. [X] Robot Jogging including cartesian and rotation movement
+3. [X] Forward kinematics display
 
 
-E-Stop: <br>
+Emergency Stop: <br>
+1. [X] E-Stop onto GUI.
+2. [X] System reacts to E-stop immediately
+3. [X] E-Stop requries two actions to reset
+4. [X] Robots can still be jogged during engaged E-Stop
+5. [X] E-Stop disables certain functions when engaged
+6. [X] Physical E-Stop requires two actions to reset
+7. [X] Physical E-Stop communicates with MATLAB
+8. [ ] Physical E-Stop can interrupt MATLAB simulation
 
 
 Game/Puck Movement: <br>
