@@ -6,7 +6,7 @@ Bhupesh Guddi: 13877446 <br>
 
 Game Description:
 
-Create a game where 2 robots are hitting a puck between each other using paddles.
+Create a game where 2 robots are hitting a puck between each other using wooden planks.
 
 Update Log: <br>
 25/9: Established DH Parameters of KUKA KR6 R900 Robot Arm. <br>
@@ -33,7 +33,13 @@ E-Stop: <br>
 
 
 Game/Puck Movement: <br>
-1. [ ] 
+1. [ ] Puck starts with UR3
+2. [ ] Collides with UR3 wooden plank and rebounces to a randomly selected trajectory onto the side of the KR6 R900
+3. [ ] KR6 900 calculates and moves its wooden plank to puck
+4. [ ] KR6 900 detects collision between plank and puck
+5. [ ] Repeat steps 3 & 4 with UR3
+6. [ ] Process continues until all random trajectory points have been achieved
+7. [ ] Integrate collision detection/RMRC into movement 
 
 
 Collision Detection/Avoidance <br>
@@ -41,6 +47,6 @@ Collision Detection/Avoidance <br>
 
 Possible Scoring System: <br>
 
-Real-Demo Implementation of Pong Game:
+Real-Demo Implementation/Visual Servoing of Pong Game:
 
 
