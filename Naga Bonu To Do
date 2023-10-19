@@ -1,3 +1,8 @@
 Create workspace for robots <br>
 Implement safety features and what ply files to use <br>
+Create a CAD file of a puck for our game <br>
+Create a CAD file of wooden plank to be placed inside gripper <br>
+Convert both CAD files into ply file to integrate into environment <br>
 Justify positioning of robot and features <br>
+Work on movement of puck between robots <br>
+
