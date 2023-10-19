@@ -15,6 +15,7 @@ Update Log: <br>
 14/10: Integrated both robots and environment <br>
 15/10: App Designer GUI jogging done. <br>
 18/10: Emergency Stop arduino done, missing MATLAB communication. <br>
+19/10: Full GUI with working simulated emergency stop completed. <br>
 
 Tasks To Complete:
 
