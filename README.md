@@ -23,8 +23,13 @@ Robots + Environemnt:
 2. [X] Create DH Parameters for KR6 900
 3. [X] Establish an environment that incoroprates safety features for project to take place
 4. [X] Integrate robots + environment
-5. [ ] Create puck and wooden plank (to placed inside gripper) on CAD
-6. [ ] Use Blender/Mesh lab to convert CAD files into ply files which can be integrated into the environment
+5. [ ] Make robot heights level
+7. [ ] Create puck and wooden plank (to placed inside gripper) on CAD
+8. [ ] Use Blender/Mesh lab to convert CAD files into ply files which can be integrated into the environment
+
+Making Robot Heights Level:
+
+Write process
 
 Creation of GUI: <br>
 
