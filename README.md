@@ -1,5 +1,9 @@
 # Industrial-Robotics 41013 Spring 2023
 
+Karl Cincollagas: 13918180 <br>
+Naga Bonu: 13908948 <br>
+Bhupesh Guddi: 13877446 <br>
+
 Game Description:
 
 Create a game where 2 robots are hitting a puck between each other using paddles.
@@ -11,10 +15,6 @@ Update Log: <br>
 14/10: Integrated both robots and environment <br>
 15/10: App Designer GUI jogging done. <br>
 18/10: Emergency Stop arduino done, missing MATLAB communication. <br>
-
-Karl Cincollagas: 13918180 <br>
-Naga Bonu: 13908948 <br>
-Bhupesh Guddi: 13877446 <br>
 
 Tasks To Complete:
 
@@ -38,9 +38,8 @@ Game/Puck Movement: <br>
 
 Collision Detection/Avoidance <br>
 
+
 Possible Scoring System: <br>
-
-
 
 Real-Demo Implementation of Pong Game:
 
