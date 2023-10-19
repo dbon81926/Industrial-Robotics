@@ -6,7 +6,7 @@ Bhupesh Guddi: 13877446 <br>
 
 Game Description:
 
-Create a game where 2 robots are hitting a puck between each other using wooden planks. Ensure safety features and a custom GUI has been created to make our system user-friendly. A visual demonstration will be shown where the UR3 will be mimicking the simulated UR3's positions. 
+Create a game where 2 robots are hitting a puck between each other using wooden planks. Various safety features are implemented, as well as interactive GUI with emergency stop functionality. A visual demonstration will be shown where the UR3 will be mimicking the simulated UR3's positions. 
 
 Update Log: <br>
 25/9: Established DH Parameters of KUKA KR6 R900 Robot Arm. <br>
