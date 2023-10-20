@@ -26,18 +26,17 @@ Update Log: <br>
 
 Tasks To Complete:
 
-Robots + Environemnt:
+Robots + Environemnt: <br>
 1. [X] Finalise a project for A2
 2. [X] Create DH Parameters for KR6 900
 3. [X] Establish an environment that incoroprates safety features for project to take place
 4. [X] Integrate robots + environment
-5. [ ] Make robot heights level
-7. [ ] Create puck and wooden plank (to placed inside gripper) on CAD
-8. [ ] Use Blender/Mesh lab to convert CAD files into ply files which can be integrated into the environment
+5. [X] Make robot heights level
+7. [X] Create puck and wooden plank (to placed inside gripper) on CAD
+8. [X] Use Blender/Mesh lab to convert (CAD) SLDPRT. files into STL. files
+9. [X] Scale and make visibe using vertex painting --> Export as PLY. files
+10. [X] Import ply files into the MATLAB
 
-Making Robot Heights Level:
-
-Write process
 
 Creation of GUI: <br>
 1. [X] Advanced teach function
