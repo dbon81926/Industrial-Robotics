@@ -19,10 +19,12 @@ Update Log: <br>
 25/9: Established DH Parameters of KUKA KR6 R900 Robot Arm. <br>
 11/10: Completed KUKA KR6 R900 ply files and model. <br>
 13/10: Workspace Established with inital safety features + UR3. <br>
-14/10: Integrated both robots and environment <br>
+14/10: Integrated both robots and initial environment <br>
 15/10: App Designer GUI jogging done. <br>
 18/10: Emergency Stop arduino done, missing MATLAB communication. <br>
 19/10: Full GUI with working simulated emergency stop completed. <br>
+19/10: Changed robot to UR5 to increase range (got approval) <br>
+19/10: Completed environment + safety features <br>
 
 Tasks To Complete:
 
