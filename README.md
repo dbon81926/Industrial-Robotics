@@ -8,6 +8,13 @@ Game Description:
 
 Create a game where 2 robots are hitting a puck between each other using wooden planks. Various safety features are implemented, as well as interactive GUI with emergency stop functionality. A visual demonstration will be shown where the UR3 will be mimicking the simulated UR3's positions. 
 
+Instructions: <br>
+- Place the @KUKAKR6R900 folder into the robot toolbox path "/rvctools/robot/UTS/RobotModels". <br>
+  To use the model, create an instance using "r = KUKAKR6R900". "r.model" can be used normally, E.g. "r.model.teach". <br>
+- All environment ".ply" files can be placed within the same path as the class file, or cam be placed in "/rvctools/robot/UTS/Parts". <br>
+- 
+  
+
 Update Log: <br>
 25/9: Established DH Parameters of KUKA KR6 R900 Robot Arm. <br>
 11/10: Completed KUKA KR6 R900 ply files and model. <br>
