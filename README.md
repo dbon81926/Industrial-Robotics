@@ -11,7 +11,7 @@ Create a game where 2 robots are hitting a puck between each other using wooden 
 Instructions: <br>
 - Place the @KUKAKR6R900 folder into the robot toolbox path "/rvctools/robot/UTS/RobotModels". <br>
   To use the model, create an instance using "r = KUKAKR6R900". "r.model" can be used normally, E.g. "r.model.teach". <br>
-- All environment ".ply" files can be placed within the same path as the class file, or cam be placed in "/rvctools/robot/UTS/Parts". <br>
+- All Environment ".ply" files can be placed within the same path as the class file, or can be placed in "/rvctools/robot/UTS/Parts". <br>
 - 
   
 
