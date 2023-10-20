@@ -70,8 +70,6 @@ Game/Puck Movement: <br>
 Collision Detection/Avoidance <br>
 
 
-Possible Scoring System: <br>
-
 Real-Demo Implementation/Visual Servoing of Pong Game:
 
 
