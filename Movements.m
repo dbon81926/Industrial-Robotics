@@ -13,7 +13,6 @@ U = UR5(transl(U_base));
 
 yPositions = linspace(0.4,-0.4,10);
 
-
 next_position_U = U.model.ikcon( SE3(U_base).T*SE3(0.5,0,0).T* trotx(pi), U.model.getpos());
 U.model.animate(next_position_U);
 drawnow();
