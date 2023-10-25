@@ -245,7 +245,28 @@ classdef Assign2 < handle
             Emergency_StopButton = PlaceObject('emergencyStopButton.ply',[0.9,0.9,0.5]);
             hold on
             Emergency_StopButton = PlaceObject('emergencyStopButton.ply',[-0.9,-0.9,0.5]);
-            hold on   
+            hold on
+            
+            % Load the robots
+
+            %UR5
+             U = UR5(Assign2.U_base); %Load in robot to base position
+            K = KUKAKR6R900(Assign2.K_base);
+            hold on
+            assignin('base', 'U', U);
+            assignin('base', 'K', K);
+
+            % input('Done');
+            % Robot.model.teach(Robot.model.getpos)
+            % qStart = zeros(1,Robot.model.n); %Initialise robot
+            % disp(U.model.fkine(U.model.getpos))
+            % 
+            % next_position_U = U.model.ikcon( SE3(Assign2.U_base).T*SE3(-0.5,0,0).T * trotx(pi), U.model.getpos());
+            % U.model.animate(next_position_U);
+            % drawnow();
+            % next_position_K = K.model.ikcon( SE3(Assign2.K_base).T * SE3(0.5,0,0).T * trotx(pi), K_guess_pos );
+            % K.model.animate(next_position_K);
+            % drawnow();
 
         end
 
