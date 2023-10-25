@@ -89,4 +89,5 @@ drawnow();
 next_position_K = K.model.ikcon( SE3(K_base).T * SE3(0,0.5,0).T * trotx(pi)*trotz(pi/2), K_guess_pos );
 K.model.animate(next_position_K);
 drawnow();
-
+puck.puckModel{1}.base = transl(P_base);
+animate(puck.puckModel{1},0);

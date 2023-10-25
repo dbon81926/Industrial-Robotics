@@ -215,10 +215,6 @@ Kuka_base = transl(0,-1.60,0.5) * trotz(pi/2); %Initial position of KR6 R900
             blocker1 = PlaceObject('blocker.ply',[0,0,1.2]);
             hold on
             
-            %Load Puck on Table
-            puck = PlaceObject('puck.ply',[0,0,0.5]);
-            hold on
-            % 
             % %Load Blocker
             % blocker1 = PlaceObject('blocker.ply',[0,0,0.5])
             % hold on
