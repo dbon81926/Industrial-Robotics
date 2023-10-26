@@ -36,7 +36,7 @@ Robots + Environemnt: <br>
 5. [X] Make robot heights level
 7. [X] Create puck and wooden plank (to placed inside gripper) on CAD
 8. [X] Use Blender/Mesh lab to convert (CAD) SLDPRT. files into STL. files
-9. [X] Scale and make visibe using vertex painting --> Export as PLY. files
+9. [X] Scale and make visible using vertex painting --> Export as PLY. files
 10. [X] Import ply files into the MATLAB
 
 
