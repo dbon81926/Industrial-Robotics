@@ -25,6 +25,8 @@ Update Log: <br>
 19/10: Full GUI with working simulated emergency stop completed. <br>
 19/10: Changed robot to UR5 to increase range (got approval) <br>
 19/10: Completed environment + safety features <br>
+25/10: Finished inital movement of puck and contact with robots end effectors <br>
+27/10: 1-min Promotional Video completed and submitted as Youtube link <br>
 
 Tasks To Complete:
 
