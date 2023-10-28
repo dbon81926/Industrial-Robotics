@@ -64,7 +64,7 @@ Emergency Stop: <br>
 4. [X] Create a storyline/background images/subtitles and narrator for our video
 5. [X] Convert audio files into mp3 links to be imported into CapCut
 6. [X] Place both specifications of robot beside eah other for comparison
-7. [X] Screen Record features and various angles of environment
+7. [X] Screen record features and various angles of environment
 8. [X] Integrate game into GUI
 9. [X] Demonstrate advanced teach module controlling KR6 900
 10. [X] Display emergency stop and reset working in simulation
@@ -74,16 +74,16 @@ Emergency Stop: <br>
 
 
 Game/Puck Movement: <br>
-1. [ ] Puck starts with UR3
-2. [ ] Collides with UR3 wooden plank and rebounces to a randomly selected trajectory onto the side of the KR6 R900
-3. [ ] KR6 900 calculates and moves its wooden plank to puck
-4. [ ] KR6 900 detects collision between plank and puck
-5. [ ] Repeat steps 3 & 4 with UR3
-6. [ ] Process continues until all random trajectory points have been achieved
-7. [ ] Integrate collision detection/RMRC into movement 
+1. [X] Puck starts in the middle 
+2. [X] Collides with UR3 end effector and rebounces to a randomly selected trajectory onto the side of the KR6 R900
+3. [X] KR6 900 detects collision between end effector and puck
+4. [ ] Code wooden plank to align with end effector to contact the puck
+6. [ ] Repeat steps 3 & 4 with UR3
+7. [ ] Process continues until all random trajectory points have been achieved
+8. [ ] Integrate collision detection/RMRC into movement 
 
 
-Collision Detection/Avoidance <br>
+RMRC/Collision Detection <br>
 
 
 Real-Demo Implementation/Visual Servoing of Pong Game:
