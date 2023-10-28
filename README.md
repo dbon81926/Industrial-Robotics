@@ -47,7 +47,7 @@ Creation of GUI: <br>
 
 
 Emergency Stop: <br>
-1. [X] E-Stop onto GUI.
+1. [X] E-Stop onto GUI
 2. [X] System reacts to E-stop immediately
 3. [X] E-Stop requries two actions to reset
 4. [X] Robots can still be jogged during engaged E-Stop
@@ -55,6 +55,22 @@ Emergency Stop: <br>
 6. [X] Physical E-Stop requires two actions to reset
 7. [X] Physical E-Stop communicates with MATLAB
 8. [ ] Physical E-Stop can interrupt MATLAB simulation
+
+
+1-min Promotional Video: <br>
+1. [X] Movement of puck to be translating between both robots
+2. [X] Make contact with end effector of robots
+3. [X] Install CapCut as software to create our video
+4. [X] Create a storyline/background images/subtitles and narrator for our video
+5. [X] Convert audio files into mp3 links to be imported into CapCut
+6. [X] Place both specifications of robot beside eah other for comparison
+7. [X] Screen Record features and various angles of environment
+8. [X] Integrate game into GUI
+9. [X] Demonstrate advanced teach module controlling KR6 900
+10. [X] Display emergency stop and reset working in simulation
+11. [X] Display real life emergency stop working with Arduino
+12. [X] Conclude video
+   
 
 
 Game/Puck Movement: <br>
