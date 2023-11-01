@@ -26,7 +26,7 @@ classdef RobotPuck < handle
     
     methods
         %% ...structors
-        function self = RobotPuck(puckCount)
+        function self = RobotPuck(puckCount, basePose)
             if 0 < nargin
                 self.puckCount = puckCount;
             end
@@ -40,7 +40,7 @@ classdef RobotPuck < handle
                 self.puckModel{i} = self.GetPuckModel(['puck',num2str(i)]);
                 % Random spawn
                 % basePose = SE3(SE2( (2 * rand()-1) * self.paddockSize(1)/2 , (2 * rand()-1) * self.paddockSize(2)/2  , (2 * rand()-1) * 2 * pi ));%
-                basePose = SE3(0,0,0);
+                %basePose = SE3(0,0,0);
 
                 self.puckModel{i}.base = basePose;
                 
