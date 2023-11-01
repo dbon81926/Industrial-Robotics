@@ -1,17 +1,10 @@
-classdef Assign2 < handle 
+base = transl(0,1.35,0.60) * trotz(pi/2); %Initial position of UR3
+Kuka_base = transl(0,-1.60,0.5) * trotz(pi/2); %Initial position of KR6 R900
 
-    properties (Constant)
-
-    end
-
-    methods (Static) 
-        function [] = Workspace()
-            close all
-            clear all
             axis equal
-            hold on
 
             %Load Fences
+
             fence1 = PlaceObject('fenceFinal.ply',[-1.5,1.40,0]);
             hold on
             fence2 = PlaceObject('fenceFinal.ply',[-1.5,0.60,0]);
@@ -21,7 +14,8 @@ classdef Assign2 < handle
             fence4 = PlaceObject('fenceFinal.ply',[-1.5,-1.0,0]);
             hold on
             fence17 = PlaceObject('fenceFinal.ply',[-1.5,-1.8,0]);
-            hold on
+
+
             fence5 = PlaceObject('fenceFinal.ply',[1.50,-1.80,0]);
             hold on
             fence6 = PlaceObject('fenceFinal.ply',[1.50,-1.00,0]);
@@ -221,14 +215,12 @@ classdef Assign2 < handle
             blocker1 = PlaceObject('blocker.ply',[0,0,1.2]);
             hold on
             
-            %Load Puck on Table
-            puck = PlaceObject('puck.ply',[0,0,0.5]);
-            hold on
-            % 
             % %Load Blocker
             % blocker1 = PlaceObject('blocker.ply',[0,0,0.5])
             % hold on
 
+
+        
             %Load Tables
             table1 = PlaceObject('tableBrown2.1x1.4x0.5m.ply',[0,0,0]);
             hold on
@@ -237,22 +229,27 @@ classdef Assign2 < handle
             table3 = PlaceObject('tableBrown2.1x1.4x0.5m.ply',[0,1,0]);
             hold on
 
+
             %Load Fire Extinguisher
             fireExtinguisher = PlaceObject('fireExtinguisher.ply',[1.3,-2.0,0]);
             hold on
+            
 
             %Emergency Stop Button
             Emergency_StopButton = PlaceObject('emergencyStopButton.ply',[0.9,0.9,0.5]);
             hold on
             Emergency_StopButton = PlaceObject('emergencyStopButton.ply',[-0.9,-0.9,0.5]);
-            hold on   
+            hold on
 
-        end
+            Robot = UR5(base); %Load in UR3
+            Robot2 = KUKAKR6R900(Kuka_base); %Load in KR6 R900
 
-
-       
+           
+            % K = KUKAKR6R900(transl(0,-1.35,0.5)) * trotz(pi/2); %load in KR6900
             
-
-    end
-end
+            assignin('base', 'Robot', Robot);
+            input('Done');
+            % Robot.model.teach(Robot.model.getpos)
+            % 
+            % qStart = zeros(1,Robot.model.n); %Initialise robot
 
