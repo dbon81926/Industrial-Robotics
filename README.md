@@ -96,8 +96,9 @@ Week 12 Demo Presentation: <br>
 2. [ ] Safety + Justify
 3. [ ] Thought Process + Reasoning 
 4. [ ] Specs of Robots + Comparison
-5. [ ] Approval + Justification to use UR5 instead of UR3
-6. [ ] Real UR3 moving to simulation end effector points
-7. [ ] Point of project
+5. [ ] RMRC + Collision Implemented
+6. [ ] Approval + Justification to use UR5 instead of UR3
+7. [ ] Real UR3 moving to simulation end effector points
+8. [ ] Conclusion
 
 
