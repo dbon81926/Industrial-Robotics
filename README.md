@@ -27,7 +27,7 @@ Update Log: <br>
 19/10: Completed environment + safety features <br>
 25/10: Finished inital movement of puck and contact with robots end effectors <br>
 27/10: 1-min Promotional Video completed and submitted as Youtube link <br>
-1/10: Real video taken of UR3 moving to end-effector position using joint angles of game <br>
+1/11: Real video taken of UR3 moving to end-effector position using joint angles of game <br>
 
 Tasks To Complete:
 
