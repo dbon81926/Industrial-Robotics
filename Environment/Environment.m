@@ -247,9 +247,9 @@ Kuka_base = transl(0,-1.60,0.5) * trotz(pi/2); %Initial position of KR6 R900
            
             % K = KUKAKR6R900(transl(0,-1.35,0.5)) * trotz(pi/2); %load in KR6900
             
-            assignin('base', 'Robot', Robot);
-            input('Done');
+           
             % Robot.model.teach(Robot.model.getpos)
             % 
             % qStart = zeros(1,Robot.model.n); %Initialise robot
+
 
