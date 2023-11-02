@@ -6,8 +6,12 @@ close all
 clear all
 hold on 
 axis equal
+inplay = 0;
+blockRadi = 0.08;
 
-% Environment;
+
+
+Environment;
 puck = RobotPuck(1,transl(0,-1,0.55));
 % puck.puckModel{1}.base = transl(0,0.0,0.55) ;
 animate(puck.puckModel{1},0);
@@ -24,7 +28,7 @@ p1Point =  [ plane1Origin 0 0];
 %plot the plane 
 [Y1, Z1] = meshgrid(-1.5:0.1:1.5, -1.5:0.1:1.5);
 X1 = repmat(plane1Origin , size(Y1,1), size(Z1,1));
-surf(X1,Y1,Z1);
+% surf(X1,Y1,Z1);
 
 
 % Plane Right:
@@ -35,7 +39,7 @@ p2Point =  [ plane2Origin 0 0];
 % Plot the plane 
 [Y2, Z2] = meshgrid(-1.5:0.1:1.5, -1.5:0.1:1.5);
 X2 = repmat(plane2Origin , size(Y2,1), size(Z2,1));
-surf(X2,Y2,Z2);
+% surf(X2,Y2,Z2);
 
 % Kuka Plane
 KukaPlane = -1.21;
@@ -44,7 +48,7 @@ KukaPoint =  [ 0 KukaPlane 0];
 %plot the plane 
 [X3, Z3] = meshgrid(-1.29:0.1:1.29, -1.29:0.1:1.29);
 Y3 = repmat(KukaPlane , size(X3,1), size(Z3,1));
-surf(X3,Y3,Z3);
+% surf(X3,Y3,Z3);
 
 % UR5 Plane
 UR5Plane =  1.21;
@@ -53,97 +57,53 @@ UR5Point =  [ 0 UR5Plane 0];
 %plot the plane 
 [X4, Z4] = meshgrid(-1.29:0.1:1.29, -1.29:0.1:1.29);
 Y4 = repmat(UR5Plane , size(X4,1), size(Z4,1));
-surf(X4,Y4,Z4);
+% surf(X4,Y4,Z4);
 
+% UR5 EndEffector 
+UR5EE = Robot.model.fkine(Robot.model.getpos).t';
+UR5EEPlane =  UR5EE(2) - 0.08; % make sure to have the offset to account for the pucks radius
+UR5EENormal = [0 -1 0];
+UR5EEPoint =  [ 0 UR5EEPlane 0];
+%plot the plane and make it small enough for the blocker
+
+[X5, Z5] = meshgrid(linspace(UR5EE(1) - blockRadi,UR5EE(1) + blockRadi,10),linspace(0.5,0.6,10));
+Y5 = repmat(UR5EEPlane , size(X5,1), size(Z5,1));
+surf(X5,Y5,Z5);
+
+% Kuka EndEffector 
+KukaEE = Robot2.model.fkine(Robot2.model.getpos).t';
+KukaEEPlane =  KukaEE(2) + 0.08; % make sure to have the offset to account for the pucks radius
+KukaEENormal = [0 -1 0];
+KukaEEPoint =  [ 0 KukaEEPlane 0];
+%plot the plane and make it small enough for the blocker
+
+
+[X6, Z6] = meshgrid(linspace(KukaEE(1)-blockRadi,KukaEE(1) + blockRadi,10),linspace(0.5,0.6,10));
+Y6 = repmat(KukaEEPlane , size(X6,1), size(Z6,1));
+surf(X6,Y6,Z6);
+
+% Set up the puck
 
 
 axis equal
-%% Testing the Collision
-% For the sides
-for i = -1 : 0.01 : 1
-    Puckcenter = [i,0,0.5];
 
-    [intersectionPoints1,check1] = LinePlaneIntersection(p1Normal,p1Point,Puckcenter,Puckcenter);
-   
-    % Check the collision with the second plane
-    [intersectionPoints2,check2] = LinePlaneIntersection(p2Normal,p2Point,Puckcenter,Puckcenter);
-
-    if check1 == 2
-        plot3(intersectionPoints1(1),intersectionPoints1(2),intersectionPoints1(3) ,'k*','MarkerSize',20);
-        disp(" collision Detected 1")
-    end
-
-    if check2 == 2
-        plot3(intersectionPoints2(1),intersectionPoints2(2),intersectionPoints2(3) ,'k*','MarkerSize',20);
-        disp(" collision Detected 2")
-    end
-
-end
-% For Goals
-for i = -1.5 : 0.005 : 1.5
-    Puckcenter = [-0.5,i,0.6];
-
-    [intersectionPoints3,check3] = LinePlaneIntersection(KukaNormal,KukaPoint,Puckcenter,Puckcenter);
-    % Check the collision with the second plane
-    [intersectionPoints4,check4] = LinePlaneIntersection(UR5Normal,UR5Point,Puckcenter,Puckcenter);
-
-    if check3 == 2
-        plot3(intersectionPoints3(1),intersectionPoints3(2),intersectionPoints3(3) ,'k*','MarkerSize',20);
-        disp(" GOAL UR5");
-    end
-
-    if check4 == 2
-        plot3(intersectionPoints4(1),intersectionPoints4(2),intersectionPoints4(3) ,'k*','MarkerSize',20);
-        disp(" GOAL KuKA");
-    end
-end
-
-%% Insert the puck and overlay the point over the puck
-% puck = RobotPuck(1);
-for i = -1.5 : 0.005 : 1.5
-
-    puck.puckModel{1}.base = transl(0,i,0.55) ;
-    animate(puck.puckModel{1},0);
-    pause(0.01);
-    drawnow();
-
-    Puckcenter = puck.puckModel{1}.base.t';
-
-% Check Collision
-    [intersectionPoints3,check3] = LinePlaneIntersection(KukaNormal,KukaPoint,Puckcenter,Puckcenter);
-    [intersectionPoints4,check4] = LinePlaneIntersection(UR5Normal,UR5Point,Puckcenter,Puckcenter);
-
-    if check3 == 2
-        plot3(intersectionPoints3(1),intersectionPoints3(2),intersectionPoints3(3) ,'k*','MarkerSize',20);
-        disp(" GOAL UR5");
-    end
-
-    if check4 == 2
-        plot3(intersectionPoints4(1),intersectionPoints4(2),intersectionPoints4(3) ,'k*','MarkerSize',20);
-        disp(" GOAL KuKA");
-    end
-end
 %% Bouncing Puck off the wall after a Collision
 
-% First I want the puck to hit the wall and the collision to be detected
-    movement = transl(0,0.015,0);
-    puck.puckModel{1}.base =   transl(0,-1,0.55)*(trotz(60,'deg')) ;
-    try delete(tr_p); end
-    tr_p = trplot(puck.puckModel{1}.base.T);
-    animate(puck.puckModel{1},0);
-    pause(0.01);
-    drawnow();
-    Puckcenter = puck.puckModel{1}.base.t';
-
-    %%
-    while(1)
-    % Puckcenter_P = puck.puckModel{1}.base.t'
+for j = -180:50:180
+inplay = 1;
+movement = transl(0,0.02,0);
+puck.puckModel{1}.base =   transl(0,-0.5,0.55)*(trotz(j,'deg')) ;
+try delete(tr_p); end
+tr_p = trplot(puck.puckModel{1}.base.T);
+animate(puck.puckModel{1},0);
+pause(0.01);
+drawnow();
+Puckcenter = puck.puckModel{1}.base.t';
+    while(inplay == 1)
     puck.puckModel{1}.base = puck.puckModel{1}.base.T * movement ;
     animate(puck.puckModel{1},0);
     pause(0.01);
     drawnow();
-    try delete(tr_p); end
-    tr_p = trplot(puck.puckModel{1}.base.T);
     Puckcenter_P = Puckcenter;
     Puckcenter = puck.puckModel{1}.base.t';
 
@@ -152,6 +112,9 @@ end
     [intersectionPoints2,check2] = LinePlaneIntersection(p2Normal,p2Point,Puckcenter_P,Puckcenter);
     [intersectionPoints3,check3] = LinePlaneIntersection(KukaNormal,KukaPoint,Puckcenter_P,Puckcenter);
     [intersectionPoints4,check4] = LinePlaneIntersection(UR5Normal,UR5Point,Puckcenter_P,Puckcenter);
+    [intersectionPoints5,check5] = LinePlaneIntersection(UR5EENormal,UR5EEPlane,Puckcenter_P,Puckcenter);
+    [intersectionPoints6,check6] = LinePlaneIntersection(KukaEENormal,KukaEEPlane,Puckcenter_P,Puckcenter);
+
     % What to do if a COllision is detected
     if check1 == 1
         plot3(intersectionPoints1(1),intersectionPoints1(2),intersectionPoints1(3) ,'k*','MarkerSize',5);
@@ -167,8 +130,7 @@ end
         animate(puck.puckModel{1},0);
         pause(0.01);
         drawnow();
-        try delete(tr_p); end
-        tr_p = trplot(puck.puckModel{1}.base.T);
+
         Puckcenter = puck.puckModel{1}.base.t';
 
     end
@@ -188,57 +150,125 @@ end
         rad2deg(angle_of_entry_rad)
 
         drawnow();
-        try delete(tr_p); end
-        tr_p = trplot(puck.puckModel{1}.base.T);
+
         Puckcenter = puck.puckModel{1}.base.t';
     end
 
     if check3 == 1
         plot3(intersectionPoints3(1),intersectionPoints3(2),intersectionPoints3(3) ,'k*','MarkerSize',5);
         disp(" GOAL UR5");
-        PuckVector = (Puckcenter - Puckcenter_P)/norm(Puckcenter - Puckcenter_P);
-        UR5WallVector = ([-1,1.21,0.55]-[1, 1.21, 0.55])/norm([-1,1.21,0.55]-[1, 1.21, 0.55]);
-
-        dot_product = dot(PuckVector, UR5WallVector);
-        angle_of_entry_rad = acos(dot_product);
-        puck.puckModel{1}.base = puck.puckModel{1}.base.T * trotz(2*angle_of_entry_rad) * movement ;
-        animate(puck.puckModel{1},0);
-        rad2deg(angle_of_entry_rad)
-
-        animate(puck.puckModel{1},0);
-        drawnow();
-        try delete(tr_p); end
-        tr_p = trplot(puck.puckModel{1}.base.T);
-        % Puckcenter_P = puck.puckModel{1}.base.t';
-        Puckcenter = puck.puckModel{1}.base.t';
-        
-
+        inplay = 0;
     end
 
     if check4 == 1
         plot3(intersectionPoints4(1),intersectionPoints4(2),intersectionPoints4(3) ,'k*','MarkerSize',5);
         disp(" GOAL KuKA");
-
-        PuckVector = (Puckcenter - Puckcenter_P)/norm(Puckcenter - Puckcenter_P);
-        KukaWallVector = ([-1, -1.21, 0.55]-[1, -1.21, 0.55])/norm([-1, -1.21, 0.55]-[1, -1.21, 0.55]);
-
-        dot_product = dot(PuckVector, KukaWallVector);
-        angle_of_entry_rad = acos(dot_product);
-        puck.puckModel{1}.base = puck.puckModel{1}.base.T * trotz(-2*angle_of_entry_rad) * movement ;
-        animate(puck.puckModel{1},0);
-        rad2deg(angle_of_entry_rad)
-
-        animate(puck.puckModel{1},0);
-        drawnow();
-        try delete(tr_p); end
-        tr_p = trplot(puck.puckModel{1}.base.T);
-        Puckcenter = puck.puckModel{1}.base.t';
+        inplay = 0;
     end
+    % End Effector Collision check
+    % The Logic: 
+    %   1. Have a plane that is in line with the end effector position
+    %   2. Wait for a collision with the plane 
+    %   3. Measure the distance from the puck to the EE 
+    %   4. If Distance is smaller then the Radi of the block = Collision.
+    %   Bounce the puck back
+    %   5. if no Colision then the puck will hit the goal
+    
+    % 1. find the end effector position and use the y value to create a Plane
+    % along the x axis. 
+    
+    % When a collision is detected. find the distance between the end effector and the 
+    % pucks center. if the y distance from the puck to the EE is less then the distance 
+    % of the block then the pluck has been blocked.
+% UR5 collision Check
+    if check5 == 1
+        % Check for the distance from the puck to the end effector Only compare
+        % the y values nothing else is need 
+        disp("Puck has hit the EE Plane of UR5");
+        puckCoordinates = puck.puckModel{1}.base.t' ;
+        UR5EE = Robot.model.fkine(Robot.model.getpos).t';
+    
+        distanceDif =   (puckCoordinates(2)) - (UR5EE(2));
+        disp("Distance to EE is:");
+        disp(distanceDif);
+        if -blockRadi < distanceDif < blockRadi % the puck has collided with the blocker. bounce the puck back
+            PuckVector = (Puckcenter - Puckcenter_P)/norm(Puckcenter - Puckcenter_P);
+            UR5EEVector = ([-0.6, UR5EE(2), 0.55]-[0.6, UR5EE(2), 0.55])/norm([-0.6, UR5EE(2), 0.55]-[0.6, UR5EE(2), 0.55]);
+    
+            dot_product = dot(PuckVector, UR5EEVector);
+            angle_of_entry_rad = acos(dot_product);
+            puck.puckModel{1}.base = puck.puckModel{1}.base.T * trotz(2*angle_of_entry_rad) * trotz(randi([-10,10]),"deg") * movement ;
+            animate(puck.puckModel{1},0);
+            rad2deg(angle_of_entry_rad)
+    
+            animate(puck.puckModel{1},0);
+            drawnow();
+            try delete(tr_p); end
+            tr_p = trplot(puck.puckModel{1}.base.T);
+            Puckcenter = puck.puckModel{1}.base.t';
+        end
+        % if the distanceDif is more than 1 then we just move on since
+    
     end
+% Kuka collision Check    
+    if check6 == 1
+        % Check for the distance from the puck to the end effector Only compare
+        % the y values nothing else is need 
+        disp("Puck has hit the EEPlane of KUKA");
+        puckCoordinates = puck.puckModel{1}.base.t' ;
+        KukaEE = Robot2.model.fkine(Robot2.model.getpos).t';
+    
+        distanceDif = (puckCoordinates(2)) - (KukaEE(2));
+        disp("Distance to EE is:");
+        disp(distanceDif);
+        if -blockRadi < distanceDif < blockRadi % the puck has collided with the blocker. bounce the puck back
+    
+            PuckVector = (Puckcenter - Puckcenter_P)/norm(Puckcenter - Puckcenter_P);
+            KukaEEVector = ([-0.6, KukaEE(2), 0.55]-[0.6, KukaEE(2), 0.55])/norm([-0.6, KukaEE(2), 0.55]-[0.6, KukaEE(2), 0.55]);
+            dot_product = dot(PuckVector, KukaEEVector);
+            angle_of_entry_rad = acos(dot_product);
+            puck.puckModel{1}.base = puck.puckModel{1}.base.T * trotz(-2*angle_of_entry_rad) * trotz(randi([-10,10]),"deg")* movement ;
+            animate(puck.puckModel{1},0);
+            rad2deg(angle_of_entry_rad)
+    
+            animate(puck.puckModel{1},0);
+            drawnow();
+
+            try delete(tr_p); end
+            tr_p = trplot(puck.puckModel{1}.base.T);
+            Puckcenter = puck.puckModel{1}.base.t';
+            
+        end
+        % if the distanceDif is more than 1 then we just move on since
+    
+    end             
+
+    end
+
+
+
+end
+
+
+
+%%
+
 %% Bounce with angles
 
-% 1. Nomarlize both vectors
-PuckVector = (Puckcenter - Puckcenter_P)/norm(Puckcenter - Puckcenter_P);
-LeftWallVector = ([-0.51,-1.5,0.55]-[-0.51, 1.5, 0.55])/norm([-0.51,-1.5,0.55]-[-0.51, 1.5, 0.55]);
-dot_product = dot(PuckVector, LeftWallVector);
-angle_of_entry_rad = acos(dot_product);
+% % 1. Nomarlize both vectors
+% PuckVector = (Puckcenter - Puckcenter_P)/norm(Puckcenter - Puckcenter_P);
+% LeftWallVector = ([-0.51,-1.5,0.55]-[-0.51, 1.5, 0.55])/norm([-0.51,-1.5,0.55]-[-0.51, 1.5, 0.55]);
+% dot_product = dot(PuckVector, LeftWallVector);
+% angle_of_entry_rad = acos(dot_product);
+
+%%
+
+
+
+
+
+
+
+
+
+

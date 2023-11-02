@@ -222,9 +222,6 @@ Kuka_base = transl(0,-1.60,0.5) * trotz(pi/2); %Initial position of KR6 R900
             % hold on
             
             %Load Puck on Table
-            puck = PlaceObject('puck.ply',[0,0,0.5]);
-            hold on
-
 
             %Load Tables
             table1 = PlaceObject('tableBrown2.1x1.4x0.5m.ply',[0,0,0]);
@@ -252,8 +249,7 @@ Kuka_base = transl(0,-1.60,0.5) * trotz(pi/2); %Initial position of KR6 R900
            
             % K = KUKAKR6R900(transl(0,-1.35,0.5)) * trotz(pi/2); %load in KR6900
             
-            assignin('base', 'Robot', Robot);
-            input('Done');
+            
             % Robot.model.teach(Robot.model.getpos)
             % 
             % qStart = zeros(1,Robot.model.n); %Initialise robot
