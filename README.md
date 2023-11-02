@@ -27,6 +27,7 @@ Update Log: <br>
 19/10: Completed environment + safety features <br>
 25/10: Finished inital movement of puck and contact with robots end effectors <br>
 27/10: 1-min Promotional Video completed and submitted as Youtube link <br>
+1/10: Real video taken of UR3 moving to end-effector position using joint angles of game <br>
 
 Tasks To Complete:
 
@@ -88,10 +89,8 @@ Game/Puck Movement: <br>
 RMRC/Collision Detection <br>
 
 
-Real-Demo Implementation/Visual Servoing of Pong Game: <br>
 
-
-Week 12 Demo Presentation: <br>
+Week 12 Demo Presentation (Create PowerPoint): <br>
 1. [ ] Environment + Justify
 2. [ ] Safety + Justify
 3. [ ] Thought Process + Reasoning 
