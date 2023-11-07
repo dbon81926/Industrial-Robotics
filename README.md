@@ -27,6 +27,7 @@ Update Log: <br>
 19/10: Completed environment + safety features <br>
 25/10: Finished inital movement of puck and contact with robots end effectors <br>
 27/10: 1-min Promotional Video completed and submitted as Youtube link <br>
+1/11: Real video taken of UR3 moving to end-effector position using joint angles of game <br>
 
 Tasks To Complete:
 
@@ -79,25 +80,21 @@ Game/Puck Movement: <br>
 1. [X] Puck starts in the middle 
 2. [X] Collides with UR3 end effector and rebounces to a randomly selected trajectory onto the side of the KR6 R900
 3. [X] KR6 900 detects collision between end effector and puck
-4. [ ] Code wooden plank to align with end effector to contact the puck
-6. [ ] Repeat steps 3 & 4 with UR3
-7. [ ] Process continues until all random trajectory points have been achieved
-8. [ ] Integrate collision detection/RMRC into movement 
+4. [X] Code wooden plank to align with end effector to contact the puck
+6. [X] Repeat steps 3 & 4 with UR3
+7. [X] Process continues until all random trajectory points have been achieved
+8. [X] Integrate collision detection/RMRC into movement 
 
 
-RMRC/Collision Detection <br>
 
-
-Real-Demo Implementation/Visual Servoing of Pong Game: <br>
-
-
-Week 12 Demo Presentation: <br>
-1. [ ] Environment + Justify
-2. [ ] Safety + Justify
-3. [ ] Thought Process + Reasoning 
-4. [ ] Specs of Robots + Comparison
-5. [ ] Approval + Justification to use UR5 instead of UR3
-6. [ ] Real UR3 moving to simulation end effector points
-7. [ ] Point of project
+Week 12 Demo Presentation (Create PowerPoint): <br>
+1. [X] Environment + Justify
+2. [X] Safety + Justify
+3. [X] Thought Process + Reasoning 
+4. [X] Specs of Robots + Comparison
+5. [X] RMRC + Collision Implemented
+6. [X] Approval + Justification to use UR5 instead of UR3
+7. [X] Real UR3 moving to simulation end effector points
+8. [X] Conclusion
 
 
