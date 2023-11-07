@@ -7,7 +7,7 @@ clear all
 hold on 
 axis equal
 inplay = 0;
-blockRadi = 0.2;
+blockRadi = 0.08;
 
 
 
@@ -47,7 +47,7 @@ KukaNormal = [0 -1 0];
 KukaPoint =  [ 0 KukaPlane 0];
 %plot the plane 
 [X3, Z3] = meshgrid(-1.29:0.1:1.29, -1.29:0.1:1.29);
-Y3 = repmat((KukaPlane - 0.08) , size(X3,1), size(Z3,1));
+Y3 = repmat(KukaPlane , size(X3,1), size(Z3,1));
 % surf(X3,Y3,Z3);
 
 % UR5 Plane
@@ -67,7 +67,7 @@ UR5EEPoint =  [ 0 UR5EEPlane 0];
 %plot the plane and make it small enough for the blocker
 
 [X5, Z5] = meshgrid(linspace(UR5EE(1) - blockRadi,UR5EE(1) + blockRadi,10),linspace(0.5,0.6,10));
-Y5 = repmat((UR5EEPlane+0.08) , size(X5,1), size(Z5,1));
+Y5 = repmat(UR5EEPlane , size(X5,1), size(Z5,1));
 surf(X5,Y5,Z5);
 
 % Kuka EndEffector 
@@ -77,8 +77,9 @@ KukaEENormal = [0 -1 0];
 KukaEEPoint =  [ 0 KukaEEPlane 0];
 %plot the plane and make it small enough for the blocker
 
+
 [X6, Z6] = meshgrid(linspace(KukaEE(1)-blockRadi,KukaEE(1) + blockRadi,10),linspace(0.5,0.6,10));
-Y6 = repmat((KukaEEPlane - 0.08), size(X6,1), size(Z6,1));
+Y6 = repmat(KukaEEPlane , size(X6,1), size(Z6,1));
 surf(X6,Y6,Z6);
 
 % Set up the puck
@@ -88,7 +89,7 @@ axis equal
 
 %% Bouncing Puck off the wall after a Collision
 
-for j = -45:5:45
+for j = -180:50:180
 inplay = 1;
 movement = transl(0,0.02,0);
 puck.puckModel{1}.base =   transl(0,-0.5,0.55)*(trotz(j,'deg')) ;
@@ -187,10 +188,10 @@ Puckcenter = puck.puckModel{1}.base.t';
         puckCoordinates = puck.puckModel{1}.base.t' ;
         UR5EE = Robot.model.fkine(Robot.model.getpos).t';
     
-        distanceDif =   (puckCoordinates(1)) - (UR5EE(1));
+        distanceDif =   (puckCoordinates(2)) - (UR5EE(2));
         disp("Distance to EE is:");
         disp(distanceDif);
-        if (-blockRadi < distanceDif) && (distanceDif< blockRadi) % the puck has collided with the blocker. bounce the puck back
+        if -blockRadi < distanceDif < blockRadi % the puck has collided with the blocker. bounce the puck back
             PuckVector = (Puckcenter - Puckcenter_P)/norm(Puckcenter - Puckcenter_P);
             UR5EEVector = ([-0.6, UR5EE(2), 0.55]-[0.6, UR5EE(2), 0.55])/norm([-0.6, UR5EE(2), 0.55]-[0.6, UR5EE(2), 0.55]);
     
@@ -198,9 +199,12 @@ Puckcenter = puck.puckModel{1}.base.t';
             angle_of_entry_rad = acos(dot_product);
             puck.puckModel{1}.base = puck.puckModel{1}.base.T * trotz(2*angle_of_entry_rad) * trotz(randi([-10,10]),"deg") * movement ;
             animate(puck.puckModel{1},0);
+            rad2deg(angle_of_entry_rad)
+    
             animate(puck.puckModel{1},0);
             drawnow();
-
+            try delete(tr_p); end
+            tr_p = trplot(puck.puckModel{1}.base.T);
             Puckcenter = puck.puckModel{1}.base.t';
         end
         % if the distanceDif is more than 1 then we just move on since
@@ -214,10 +218,10 @@ Puckcenter = puck.puckModel{1}.base.t';
         puckCoordinates = puck.puckModel{1}.base.t' ;
         KukaEE = Robot2.model.fkine(Robot2.model.getpos).t';
     
-        distanceDif = (puckCoordinates(1)) - (KukaEE(1));
+        distanceDif = (puckCoordinates(2)) - (KukaEE(2));
         disp("Distance to EE is:");
         disp(distanceDif);
-        if (-blockRadi < distanceDif) && (distanceDif< blockRadi) % the puck has collided with the blocker. bounce the puck back
+        if -blockRadi < distanceDif < blockRadi % the puck has collided with the blocker. bounce the puck back
     
             PuckVector = (Puckcenter - Puckcenter_P)/norm(Puckcenter - Puckcenter_P);
             KukaEEVector = ([-0.6, KukaEE(2), 0.55]-[0.6, KukaEE(2), 0.55])/norm([-0.6, KukaEE(2), 0.55]-[0.6, KukaEE(2), 0.55]);
@@ -225,9 +229,13 @@ Puckcenter = puck.puckModel{1}.base.t';
             angle_of_entry_rad = acos(dot_product);
             puck.puckModel{1}.base = puck.puckModel{1}.base.T * trotz(-2*angle_of_entry_rad) * trotz(randi([-10,10]),"deg")* movement ;
             animate(puck.puckModel{1},0);
+            rad2deg(angle_of_entry_rad)
     
             animate(puck.puckModel{1},0);
             drawnow();
+
+            try delete(tr_p); end
+            tr_p = trplot(puck.puckModel{1}.base.T);
             Puckcenter = puck.puckModel{1}.base.t';
             
         end
