@@ -31,7 +31,7 @@ Update Log: <br>
 
 Tasks To Complete:
 
-Robots + Environemnt: <br>
+Robots + Environment: <br>
 1. [X] Finalise a project for A2
 2. [X] Create DH Parameters for KR6 900
 3. [X] Establish an environment that incoroprates safety features for project to take place
