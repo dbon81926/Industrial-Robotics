@@ -97,4 +97,21 @@ Week 12 Demo Presentation (Create PowerPoint): <br>
 7. [X] Real UR3 moving to simulation end effector points
 8. [X] Conclusion
 
+3min Final Video: <br>
 
+1. [ ] Purpose: Systems purpose is to provide an entertainment using two robot manipulators. The robot manipulators play out a game of air hockey. Spectators can bet on which robot could be the winner.
+2. [ ] Talk about DH parameters (spec sheet).
+3. [ ] Inverse kinematics was used to solve the joint angles of the system. The robots end-effector was controlled within a set path by multiplying transforms. Inverse kinematics was used to calculate the joint angles for this controlled path.
+4. [ ] GUI: MATLAB App Designer was used. Class format. You can control joint angles using teach. You can jog the robot relative to the end effectors coordinate frame, as well as Roll Pitch Yaw. The start game button is located.
+5. [ ] RMRC: Resolve motion rate control was used to control the end effectors path in a straight line, although the calculation seemed to lag the simulation. We needed to switch to another approach for visuals sake. (Talk about RMRC function), importance of RMRC.
+6. [ ] Safety: Barriers for puck, fence for outsiders, 2 Estops for each robot, Fire extinguisher for fire hazard. EStop requires password ‘reset’ to reengage.
+
+7. [ ] GUI: Show controlling each robot (jogging and teach), Estop in motion, Display of End effector pose. Homing of robot.
+
+8. [ ] Extensions: mention we did not do the extension.
+
+9. [ ] Used Robot toolbox to create DH parameters. Used Class format of modified Toolbox to created Robot model. (Lab 3 was used to model) other stuff like git.
+
+10. [ ] We can use sensors and cameras to detect the pucks location, which the robot can use to move the end effector. The implementation of RMRC alongside the pucks movement caused issues (parallel processing). The robots can be used
+
+11. [ ] Find future solutions for project
